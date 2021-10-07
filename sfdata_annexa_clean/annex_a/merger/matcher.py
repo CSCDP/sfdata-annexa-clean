@@ -1,11 +1,11 @@
 import logging
 from dataclasses import dataclass
 from typing import List, Union, Dict, Tuple
-from fddc.annex_a.merger.configuration import ColumnConfig, SourceConfig, MatcherConfig
-from fddc.annex_a.merger.workbook_util import WorkSheetHeaderItem, WorkSheetDetail
+from sfdata_annexa_clean.annex_a.merger.configuration import ColumnConfig, SourceConfig, MatcherConfig
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetHeaderItem, WorkSheetDetail
 
 
-logger = logging.getLogger('fddc.annex_a.merger.matcher')
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True, eq=True)

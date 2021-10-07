@@ -1,7 +1,7 @@
 import os
 import unittest
-import fddc.annex_a.merger.matcher_report
-from fddc.annex_a.merger import matcher_report, configuration
+import sfdata_annexa_clean.annex_a.merger.matcher_report
+from sfdata_annexa_clean.annex_a.merger import matcher_report, configuration
 from tests.configuration import PROJECT_ROOT
 
 
@@ -16,4 +16,4 @@ class TestMatcherReport(unittest.TestCase):
 
         sheet_with_headers, unmatched_list = matcher_report.process_report(records, data_sources)
 
-        fddc.annex_a.merger.matcher_report.column_report(sheet_with_headers, unmatched_list, "test-report.xlsx")
+        sfdata_annexa_clean.annex_a.merger.matcher_report.column_report(sheet_with_headers, unmatched_list, "test-report.xlsx")

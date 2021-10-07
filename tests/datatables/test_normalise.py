@@ -1,5 +1,5 @@
 import unittest
-from fddc.datatables import normalise
+from sfdata_annexa_clean.datatables import normalise
 import pandas as pd
 
 

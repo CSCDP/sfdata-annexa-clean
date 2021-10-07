@@ -1,8 +1,8 @@
 import os
 import unittest
-from fddc.annex_a.merger.file_scanner import ScanSource
+from sfdata_annexa_clean.annex_a.merger.file_scanner import ScanSource
 from tests.configuration import PROJECT_ROOT
-from fddc.annex_a.merger import file_scanner
+from sfdata_annexa_clean.annex_a.merger import file_scanner
 
 
 class TestFileScanner(unittest.TestCase):

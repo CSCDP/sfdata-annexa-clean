@@ -8,13 +8,13 @@ from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
-from fddc.annex_a.merger import file_scanner, workbook_util, matcher
-from fddc.annex_a.merger.matcher import MatchedColumn, MatchedSheet, SheetWithHeaders
-from fddc.annex_a.merger.configuration import SourceConfig
-from fddc.annex_a.merger.file_scanner import ScanSource, FileSource
-from fddc.annex_a.merger.workbook_util import WorkSheetDetail
+from sfdata_annexa_clean.annex_a.merger import file_scanner, workbook_util, matcher
+from sfdata_annexa_clean.annex_a.merger.matcher import MatchedColumn, MatchedSheet, SheetWithHeaders
+from sfdata_annexa_clean.annex_a.merger.configuration import SourceConfig
+from sfdata_annexa_clean.annex_a.merger.file_scanner import ScanSource, FileSource
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetDetail
 
-logger = logging.getLogger('fddc.annex_a.merger.matcher_report')
+logger = logging.getLogger(__name__)
 
 
 @dataclass

@@ -3,9 +3,9 @@ from typing import Iterable, Mapping
 import pandas as pd
 import numpy as np
 
-from fddc.annex_a.merger.configuration import ColumnConfig
+from sfdata_annexa_clean.annex_a.merger.configuration import ColumnConfig
 
-logger = logging.getLogger('fddc.datatables.normalise')
+logger = logging.getLogger(__name__)
 
 
 def normalise_dataframe(

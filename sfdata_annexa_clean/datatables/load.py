@@ -1,9 +1,9 @@
 import logging
 import pandas as pd
-from fddc.annex_a.merger.workbook_util import WorkSheetDetail
-from fddc.datatables.cache import ExcelFileSource
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetDetail
+from sfdata_annexa_clean.datatables.cache import ExcelFileSource
 
-logger = logging.getLogger('fddc.datatables.load')
+logger = logging.getLogger(__name__)
 
 
 def load_dataframe(

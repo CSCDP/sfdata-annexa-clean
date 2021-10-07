@@ -2,16 +2,16 @@ import logging
 from typing import List, Union, Iterable
 import pandas as pd
 
-from fddc.annex_a.merger import file_scanner, workbook_util, matcher, matcher_report
-from fddc.annex_a.merger.configuration import SourceConfig
-from fddc.annex_a.merger.file_scanner import FileSource, ScanSource
-from fddc.annex_a.merger.matcher import SheetWithHeaders
-from fddc.annex_a.merger.workbook_util import WorkSheetDetail
-from fddc.datatables import load, normalise, merge
-from fddc.datatables.load import ExcelFileSource
+from sfdata_annexa_clean.annex_a.merger import file_scanner, workbook_util, matcher, matcher_report
+from sfdata_annexa_clean.annex_a.merger.configuration import SourceConfig
+from sfdata_annexa_clean.annex_a.merger.file_scanner import FileSource, ScanSource
+from sfdata_annexa_clean.annex_a.merger.matcher import SheetWithHeaders
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetDetail
+from sfdata_annexa_clean.datatables import load, normalise, merge
+from sfdata_annexa_clean.datatables.load import ExcelFileSource
 
 
-logger = logging.getLogger('fddc.annex_a.merger.workflow')
+logger = logging.getLogger(__name__)
 
 
 def __to_scan_source(input_value: Union[str, ScanSource, Iterable]) -> Iterable[ScanSource]:

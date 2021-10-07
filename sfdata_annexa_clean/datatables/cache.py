@@ -4,7 +4,7 @@ import pandas as pd
 from typing import Dict, Any
 
 
-logger = logging.getLogger('fddc.datatables.cache')
+logger = logging.getLogger(__name__)
 
 
 class ExcelFileSource:

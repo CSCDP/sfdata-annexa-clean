@@ -2,10 +2,10 @@ import logging
 from dataclasses import dataclass, asdict
 from typing import List, Any
 
-from fddc.annex_a.merger.file_scanner import FileSource
-from fddc.datatables.cache import ExcelFileSource
+from sfdata_annexa_clean.annex_a.merger.file_scanner import FileSource
+from sfdata_annexa_clean.datatables.cache import ExcelFileSource
 
-logger = logging.getLogger('fddc.annex_a.merger.workbook_util')
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True, eq=True)
@@ -32,14 +32,20 @@ def find_worksheets(source: FileSource, file_source: ExcelFileSource = ExcelFile
     excel_file = file_source.get_file(source.filename)
     workbook = excel_file.book
 
-    for sheet_name in workbook.sheet_names():
+    try:
+        workbook.sheetnames
+    except AttributeError:
+        logger.warning("Skipping old excel file")
+        return []
+
+    for sheet_name in workbook.sheetnames:
         logger.debug("Checking sheet {} in {}".format(sheet_name, source.filename))
-        sheet = workbook.sheet_by_name(sheet_name)
+        sheet = workbook[sheet_name]
 
         # We search for first row with more than 3 non-null values
         header_row_index = 1
         header_values = []  # type: List[WorkSheetHeaderItem]
-        for ix, row in enumerate(sheet.get_rows()):
+        for ix, row in enumerate(sheet.rows):
             row_length = 0
             for col in row:
                 if col.value is not None and len(str(col.value).strip()) > 0:

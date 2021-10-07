@@ -4,7 +4,7 @@ import os
 import yaml
 from string import Template
 
-logger = logging.getLogger('fddc.annex_a.config')
+logger = logging.getLogger(__name__)
 
 
 class Config(dict):

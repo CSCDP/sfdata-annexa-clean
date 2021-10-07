@@ -3,8 +3,8 @@ import dacite
 from abc import ABC
 from dataclasses import dataclass
 from typing import List, Union
-from fddc.config import Config
-from fddc.regex import parse_regex
+from sfdata_annexa_clean.config import Config
+from sfdata_annexa_clean.regex import parse_regex
 
 
 class MatcherConfig(ABC):

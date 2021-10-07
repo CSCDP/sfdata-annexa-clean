@@ -3,9 +3,9 @@ import os
 import logging
 from typing import List, Sequence, Union
 from dataclasses import dataclass
-from fddc.regex import substitute
+from sfdata_annexa_clean.regex import substitute
 
-logger = logging.getLogger('fddc.annex_a.merger.file_scanner')
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True, eq=True)

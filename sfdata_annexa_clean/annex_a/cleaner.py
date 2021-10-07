@@ -3,7 +3,7 @@ import re
 import os
 import yaml
 import pandas as pd
-from fddc.regex import parse_regex
+from sfdata_annexa_clean.regex import parse_regex
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.utils.cell import get_column_letter

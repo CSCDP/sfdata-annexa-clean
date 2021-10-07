@@ -1,10 +1,10 @@
 import unittest
 import os
 from typing import List
-from fddc.annex_a.merger.file_scanner import FileSource
-from fddc.annex_a.merger.workbook_util import WorkSheetDetail, WorkSheetHeaderItem
+from sfdata_annexa_clean.annex_a.merger.file_scanner import FileSource
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetDetail, WorkSheetHeaderItem
 from tests.configuration import PROJECT_ROOT
-from fddc.annex_a.merger import workbook_util
+from sfdata_annexa_clean.annex_a.merger import workbook_util
 
 
 class TestWorkbookUtil(unittest.TestCase):

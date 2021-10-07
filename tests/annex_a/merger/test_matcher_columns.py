@@ -3,11 +3,11 @@ from dacite import from_dict
 import yaml
 import numpy as np
 
-import fddc.annex_a.merger.matcher_report
-from fddc.annex_a.merger import matcher
-from fddc.annex_a.merger.configuration import RegexMatcherConfig
-from fddc.annex_a.merger.matcher import MatchedSheet
-from fddc.annex_a.merger.workbook_util import WorkSheetHeaderItem
+import sfdata_annexa_clean.annex_a.merger.matcher_report
+from sfdata_annexa_clean.annex_a.merger import matcher
+from sfdata_annexa_clean.annex_a.merger.configuration import RegexMatcherConfig
+from sfdata_annexa_clean.annex_a.merger.matcher import MatchedSheet
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetHeaderItem
 
 
 class TestConfiguration(unittest.TestCase):
@@ -45,7 +45,7 @@ class TestConfiguration(unittest.TestCase):
     def test_column_report(self):
         sheet = self._get_test_sheet()
         result_sheet_list = matcher.match_columns([sheet])
-        report = fddc.annex_a.merger.matcher_report.column_report(result_sheet_list)
+        report = sfdata_annexa_clean.annex_a.merger.matcher_report.column_report(result_sheet_list)
 
         self.assertEqual([
             'filename',

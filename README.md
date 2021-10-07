@@ -1,29 +1,31 @@
-# Front Door Data Collaboration ![All Tests](https://github.com/SocialFinanceDigitalLabs/FrontDoorDataCollaboration/workflows/All%20Tests/badge.svg)
+# Annex A Normaliser
 
+This code was originally developed by [Celine Gross][cece78], [Chris Owen][chowen94] and [Kaj Siebert][kws] at 
+[Social Finance][org-sf] as part of a grant funded programme to support Local 
+Authorities to collaborate on data analysis. The programme was called the ‘Front Door Data Collaboration’. It was 
+supported financially by the Christie Foundation and Nesta (through the ‘What Works Centre for Children’s Social Care’).
+The LAs whose staff guided its development were Bracknell Forest, West Berkshire, Southampton, and Surrey. 
+It also benefitted from advice from the National Performance and Information Managers Group.
 
-Welcome!
+We are happy to share this code hoping that other data analysts may benefit from a quick way to standardize Annex A to 
+conduct more analysis. 
 
-This code was originally developed by [Celine Gross](https://github.com/Cece78), [Chris Owen](https://github.com/chowen94) and [Kaj Siebert](https://github.com/kws) at Social Finance as part of a grant funded programme to support Local Authorities to collaborate on data analysis. The programme was called the ‘Front Door Data Collaboration’. It was supported financially by the Christie Foundation and Nesta (through the ‘What Works Centre for Children’s Social Care’). The LAs whose staff guided its development were Bracknell Forest, West Berkshire, Southampton, and Surrey. It also benefitted from advice from the National Performance and Information Managers Group.
-
-We are happy to share this code hoping that other data analysts may benefit from a quick way to standardize Annex A and CIN Census to conduct more analysis. 
-
-/!\ The code operates off of a Local Authority's CIN Census XML data and is not suitable for DfE's consolidated CIN Census database.
-
-You can find more info about Social Finance Digital Labs on our website: https://www.sfdl.org.uk/
-
+You can find more info about Social Finance on our website: https://www.socialfinance.org.uk/
 
 
 # What is this code about?
 
-**What if you could conduct analysis on a Local Authority's Annex A and CIN Census without worrying about cleaning the data first?**
+**What if you could conduct analysis on a Local Authority's Annex A without worrying about cleaning the data first?**
 
-Conducting varied pieces of analysis off of Annex A and CIN Census data required us to repeatedly clean the data of typos, inconsistencies, incorrect column labels, and many more fun things. We realised that there was value in writing a "cleaner" that would standardize the data so that we could get on with the analysis without re-cleaning each time.
+Conducting varied pieces of analysis off of Annex A data required us to repeatedly clean the data of typos, 
+inconsistencies, incorrect column labels, and many more fun things. We realised that there was value in writing a 
+"cleaner" that would standardize the data so that we could get on with the analysis without re-cleaning each time.
 
 
 
 # How to run this programme
 
-To run this programme, you will need to have installed Python and created a conda environment aligned with requirements.txt.
+To run this programme, you will need to have installed [Python][python] and [Poetry][poetry]. 
 
 Once that is done, follow the steps detailed below:
 
@@ -31,12 +33,6 @@ If you have Annex A data:
 - 1. Run the 10-annexa-MERGE step
 - 2. Run the 20-annexa-CLEAN step
 - 3. Run the 30-annexa-CUSTOM_CLEAN step (optional)
-
-If you have CIN Census data (XML):
-- 4. Run the 40-cincensus-CLEAN step
-
-Once you have cleaned Annex A and/or CIN Census:
-- 5. Run the 50-all-LOG step
 
 You're done!
 
@@ -104,10 +100,18 @@ To run this step, open the 50-all-LOG notebook and run all the cells. You need t
 
 **Annex A cleaning** - We have focused on providing cleaning rules on the first 8 Annex A lists. If you're keen to add additional rules for the remaining lists, please get in touch and we'd be happy to collaborate.
 
-**CIN Census cleaning** - We are performing a very simple cleaning that facilitates the data analysis by taking out any potential bugs and flagging incorrect data fields. The cleaning is not thorough enough to align a CIN Census file to the DfE validation rules.
-
 
 
 # Contributing
 
-This is our first go at providing some quick code to simplify the analysis of statutory children services data. Much more could be done! If you'd like to contribute, head over to [CONTRIBUTING.md](CONTRIBUTING.md).
+This is our first go at providing some quick code to simplify the analysis of statutory children services data. 
+Much more could be done! If you'd like to contribute, head over to [CONTRIBUTING.md](CONTRIBUTING.md).
+
+[python]: https://wiki.python.org/moin/BeginnersGuide/Download
+[poetry]: https://python-poetry.org/
+
+[org-sf]: https://www.socialfinance.org.uk/
+
+[cece78]: https://github.com/Cece78
+[chowen94]: https://github.com/chowen94
+[kws]: https://github.com/kws

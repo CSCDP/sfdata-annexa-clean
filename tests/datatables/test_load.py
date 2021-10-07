@@ -1,8 +1,8 @@
 import unittest
 import os
 
-from fddc.annex_a.merger.workbook_util import WorkSheetDetail
-from fddc.datatables import load
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetDetail
+from sfdata_annexa_clean.datatables import load
 from tests.configuration import PROJECT_ROOT
 
 

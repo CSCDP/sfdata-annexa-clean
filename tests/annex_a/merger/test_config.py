@@ -1,6 +1,6 @@
 import unittest
-from fddc.annex_a.merger.configuration import ColumnConfig, RegexMatcherConfig, MatcherConfig
-from fddc.annex_a.merger import configuration
+from sfdata_annexa_clean.annex_a.merger.configuration import ColumnConfig, RegexMatcherConfig, MatcherConfig
+from sfdata_annexa_clean.annex_a.merger import configuration
 
 
 class TestConfiguration(unittest.TestCase):

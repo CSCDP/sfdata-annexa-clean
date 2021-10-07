@@ -1,5 +1,5 @@
 import unittest
-from fddc.regex import parse_regex, substitute
+from sfdata_annexa_clean.regex import parse_regex, substitute
 import re
 
 

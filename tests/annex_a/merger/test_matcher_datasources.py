@@ -1,9 +1,9 @@
 import unittest
 
-from fddc.annex_a.merger.matcher import match_data_sources, MatchedSheet
-from fddc.annex_a.merger.configuration import SourceConfig
-from fddc.annex_a.merger.workbook_util import WorkSheetDetail
-
+from sfdata_annexa_clean.annex_a.merger import matcher
+from sfdata_annexa_clean.annex_a.merger.matcher import match_data_sources, MatchedSheet
+from sfdata_annexa_clean.annex_a.merger.configuration import SourceConfig
+from sfdata_annexa_clean.annex_a.merger.workbook_util import WorkSheetDetail
 
 class TestMatcher(unittest.TestCase):
 
@@ -17,7 +17,9 @@ class TestMatcher(unittest.TestCase):
             SourceConfig(name="list 3")
         ]
 
-        with self.assertLogs('fddc', level='INFO') as logs:
+        expected_log_name = matcher.__name__
+
+        with self.assertLogs(expected_log_name.split('.')[0], level='INFO') as logs:
             matched, unmatched = match_data_sources(sheet_detail_list, source_configuration_list)
 
         self.assertEqual(matched, [
@@ -25,6 +27,6 @@ class TestMatcher(unittest.TestCase):
         ])
 
         self.assertEqual(logs.output,
-                         ["WARNING:fddc.annex_a.merger.matcher:No datasource identified for " +
+                         [f"WARNING:{expected_log_name}:No datasource identified for " +
                           "'List 2' in 'File 2'"]
                          )
