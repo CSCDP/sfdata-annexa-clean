@@ -27,6 +27,8 @@ xlrd = "^2.0.1"
 XlsxWriter = "^3.0.1"
 
 [tool.poetry.dev-dependencies]
+flake8 = "^3.9.2"
+pytest = "^6.2.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
