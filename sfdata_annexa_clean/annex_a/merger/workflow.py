@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 from typing import List, Union, Iterable
 import pandas as pd
 
@@ -96,7 +97,7 @@ def read_sources(
 def merge_dataframes(
         sheet_with_headers: List[SheetWithHeaders],
         data_sources: List[SourceConfig],
-        output_file: str = None,
+        output_file: Union[str, Path] = None,
         file_source: ExcelFileSource = ExcelFileSource()
 ):
 

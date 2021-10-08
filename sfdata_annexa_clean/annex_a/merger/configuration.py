@@ -90,12 +90,11 @@ class __DataSourceConfig:
     datasources: List[SourceConfig]
 
 
-def parse_datasources(*args) -> List[SourceConfig]:
-    config = Config(*args)
+def parse_datasources(datasources) -> List[SourceConfig]:
 
     data_sources = dacite.from_dict(
         data_class=__DataSourceConfig,
-        data=dict(datasources=config["datasources"]),
+        data=dict(datasources=datasources),
         config=dacite.Config(strict=True)
     )
 

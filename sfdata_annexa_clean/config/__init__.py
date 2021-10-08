@@ -1,19 +1,30 @@
 import datetime
 import logging
 import os
+from pathlib import Path
+
 import yaml
 from string import Template
+
+ASSETS_DIR = Path(__file__).parent / "../assets"
+DEFAULT_CONFIG_DIR = ASSETS_DIR / "config"
 
 logger = logging.getLogger(__name__)
 
 
 class Config(dict):
 
-    def __init__(self, *config_files, local_required=False, local_warn=False):
+    def __init__(self, *config_files):
+        super().__init__()
 
-        self.load_config("./localconfig.yml", conditional=~local_required, warn=local_warn)
+        if not config_files:
+            config_files = ['DEFAULT_DATA_SOURCES', 'DEFAULT_DATA_MAP']
 
         for file in config_files:
+            if file == "DEFAULT_DATA_SOURCES":
+                file = DEFAULT_CONFIG_DIR / "annex-a-merge.yml"
+            elif file == "DEFAULT_DATA_MAP":
+                file = DEFAULT_CONFIG_DIR / "data-map.yml"
             self.load_config(file, conditional=False)
 
         self['config_date'] = datetime.datetime.now().isoformat()
