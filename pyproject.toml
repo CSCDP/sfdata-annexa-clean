@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sfdata_annexa_clean"
-version = "0.1.0-dev"
+version = "0.1.0"
 description = "A cleaner module for Annex A Data"
 authors = [
     "Céline Gross <celine.gross@socialfinance.org.uk>",
