@@ -32,20 +32,26 @@ def find_worksheets(source: FileSource, file_source: ExcelFileSource = ExcelFile
     excel_file = file_source.get_file(source.filename)
     workbook = excel_file.book
 
-    try:
-        workbook.sheetnames
-    except AttributeError:
-        logger.warning("Skipping old excel file")
-        return []
+    # try:
+    #     workbook.sheetnames
+    # except AttributeError:
+    #     logger.warning("Skipping old excel file")
+    #     return []
 
-    for sheet_name in workbook.sheetnames:
+    for sheet_name in excel_file.sheet_names:
         logger.debug("Checking sheet {} in {}".format(sheet_name, source.filename))
         sheet = workbook[sheet_name]
 
         # We search for first row with more than 3 non-null values
         header_row_index = 1
         header_values = []  # type: List[WorkSheetHeaderItem]
-        for ix, row in enumerate(sheet.rows):
+
+        try:
+            rows = sheet.rows
+        except AttributeError:
+            rows = [sheet[r] for r in range(sheet.nrows)]
+
+        for ix, row in enumerate(rows):
             row_length = 0
             for col in row:
                 if col.value is not None and len(str(col.value).strip()) > 0:

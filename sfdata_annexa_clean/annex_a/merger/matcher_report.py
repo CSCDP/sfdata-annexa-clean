@@ -1,5 +1,6 @@
 import logging
 import re
+from pathlib import Path
 from typing import Union, List, Iterable, Tuple, Dict, Any
 import dacite
 import pandas as pd
@@ -39,8 +40,8 @@ def __check_nan(value):
     return value
 
 
-def parse_report(report: Union[str, pd.DataFrame]) -> List[MatchInput]:
-    if isinstance(report, str):
+def parse_report(report: Union[str, Path, pd.DataFrame]) -> List[MatchInput]:
+    if isinstance(report, str) or isinstance(report, Path):
         logger.info(f"Reading match configuration from '{report}'")
         report = pd.read_excel(report)
 
@@ -154,14 +155,15 @@ def column_report(sheet_list: List[SheetWithHeaders],
 
     if unmatched_list:
         for sheet_detail in unmatched_list:
+            headers = [h.value if h.value else "" for h in sheet_detail.headers]
             source_info = dict(
                 filename=sheet_detail.filename,
                 sort_key=sheet_detail.sort_key,
                 sheetname=sheet_detail.sheetname,
                 header_starts=sheet_detail.header_row_index,
-                header_pos='"{0}"'.format('","'.join(sheet_detail.header_names()))
+                header_pos='"{0}"'.format('","'.join(headers))
             )
-            non_blank_headers = [h for h in sheet_detail.header_names() if len(h) > 0]
+            non_blank_headers = [h for h in headers if len(h) > 0]
             if len(non_blank_headers) == 0:
                 report.append(source_info)
             else:
@@ -289,5 +291,6 @@ def column_report(sheet_list: List[SheetWithHeaders],
 )
 ''')
         writer.save()
+        writer.close()
 
     return df[["filename", "sort_key", "header_starts", "sheetname", "table", "column_name", "header_name"]]

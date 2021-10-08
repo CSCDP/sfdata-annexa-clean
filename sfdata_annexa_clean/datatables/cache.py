@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 
 import pandas as pd
 from typing import Dict, Any
@@ -21,6 +22,16 @@ class ExcelFileSource:
         """
         if filename in self.__file_map:
             logger.debug(f"Fetching {filename} from cache.")
+            return self.__file_map[filename]
         else:
             logger.debug(f"Creating new ExcelFile for {filename}.")
-        return self.__file_map.setdefault(filename, pd.ExcelFile(filename))
+
+        file = filename
+
+        if isinstance(file, str):
+            file = Path(file)
+
+        if not file.is_absolute():
+            file = Path.cwd() / file
+
+        return self.__file_map.setdefault(filename, pd.ExcelFile(file))

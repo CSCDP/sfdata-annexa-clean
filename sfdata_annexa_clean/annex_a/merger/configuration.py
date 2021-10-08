@@ -3,7 +3,6 @@ import dacite
 from abc import ABC
 from dataclasses import dataclass
 from typing import List, Union
-from sfdata_annexa_clean.config import Config
 from sfdata_annexa_clean.regex import parse_regex
 
 
